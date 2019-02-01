@@ -22,9 +22,10 @@ class al_agents::install inherits al_agents {
   }
 
   package {'al-agent':
-    ensure     => installed,
-    name      => $al_agents::al_agent_service,
+    ensure   => installed,
+    name     => $al_agents::al_agent_service,
     provider => $provider,
-    source  => $package_path,
+    source   => $package_path,
+    require  => Exec['download'],
   }
 }
